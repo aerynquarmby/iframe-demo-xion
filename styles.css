@@ -41,6 +41,33 @@ body {
     background-color: #0056b3;
 }
 
+.input-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.logo {
+    display: block;
+    margin-bottom: 10px;
+    max-width: 50%;
+    height: auto;
+}
+
+.input-fields {
+    display: flex;
+    align-items: flex-start; /* Align items to the top */
+}
+
+.dropdown {
+    padding: 10px;
+    font-size: 20px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    margin-right: 10px;
+}
+
 #amount-input {
     padding: 10px;
     font-size: 20px;
@@ -60,20 +87,53 @@ body {
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
     z-index: 1000;
     border-radius: 10px;
+    height: 70vh; /* Adjust the height as needed */
+    overflow-y: auto; /* Add scrollbar if content exceeds the height */
 }
 
 .close-button {
     position: absolute;
     top: 10px;
     right: 10px;
+    width: 30px;
+    height: 30px;
     font-size: 20px;
     border: none;
-    background: none;
+    background: #fff;
+    color: #000;
     cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+}
+
+.close-button::before,
+.close-button::after {
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: 2px;
+    background-color: #000;
+}
+
+.close-button::before {
+    transform: rotate(45deg);
+}
+
+.close-button::after {
+    transform: rotate(-45deg);
 }
 
 .iframe {
     width: 100%;
-    height: 500px;
+    height: 115%; /* Adjust the height as needed */
     border: none;
+}
+
+.exchange-rate {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #666;
+    text-align: center;
 }

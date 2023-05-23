@@ -1,19 +1,31 @@
-<!-- index.html -->
 <!DOCTYPE html>
 <html>
 <head>
     <link rel="stylesheet" href="styles.css">
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-
 </head>
 <body>
     <div id="main-container">
         <div id="message" class="message"></div>
-        <input type="number" id="amount-input" placeholder="Enter amount in USD">
-        <button id="top-up-button" class="button">Top Up</button>
+        <div class="input-container">
+            <img src="airtime-image.png" alt="Image" class="logo">
+            <div class="input-fields">
+                <select id="product-dropdown" class="dropdown">
+                    <option value="Vodacom">Vodacom Airtime Voucher</option>
+                    <option value="MTN">MTN Airtime Voucher</option>
+                    <option value="CellC">Cell C Airtime Voucher</option>
+                    <option value="Telkom">Telkom Airtime Voucher</option>
+                </select>
+                <div class="input-wrapper">
+                    <input type="number" id="amount-input" placeholder="Enter amount in ZAR">
+                    <div id="exchange-rate" class="exchange-rate"></div>
+                </div>
+            </div>
+        </div>
+        <button id="top-up-button" class="button">Buy Airtime with Crypto</button>
     </div>
     <div id="popup" class="popup hidden">
-        <button id="close-button" class="close-button">Close</button>
+        <button id="close-button" class="close-button"></button>
         <iframe id="checkout-iframe" class="iframe"></iframe>
     </div>
     <script src="script.js"></script>
