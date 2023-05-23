@@ -1,0 +1,21 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+</head>
+<body>
+    <div id="main-container">
+        <div id="message" class="message"></div>
+        <input type="number" id="amount-input" placeholder="Enter amount in USD">
+        <button id="top-up-button" class="button">Top Up</button>
+    </div>
+    <div id="popup" class="popup hidden">
+        <button id="close-button" class="close-button">Close</button>
+        <iframe id="checkout-iframe" class="iframe"></iframe>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
