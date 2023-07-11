@@ -1,6 +1,6 @@
 const popup = document.getElementById('popup');
 const iframe = document.getElementById('checkout-iframe');
-let referenceId = 1500; // Starting reference ID
+let referenceId = 1; // Starting reference ID
 
 document.getElementById('top-up-button').addEventListener('click', async function() {
     const zarAmount = parseFloat(document.getElementById('amount-input').value);
