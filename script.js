@@ -24,7 +24,7 @@ document.getElementById('top-up-button').addEventListener('click', async functio
         console.log(`Top up amount in USD: ${usdAmount}`);
 
         const response = await axios.post(
-            'https://prodp-api.xion.app/api/v2/iframe/create-product',
+            'https://prodp-api.xionpay.app/api/v2/iframe/create-product',
             [
                 {
                     reference_id: referenceId.toString(),
@@ -47,7 +47,7 @@ document.getElementById('top-up-button').addEventListener('click', async functio
 
         const productToken = data[0].product_code;
         console.log(`Product token: ${productToken}`);
-        iframe.src = `https://checkout.xion.app/?token=${productToken}`;
+        iframe.src = `https://checkout.xionpay.app/?token=${productToken}`;
         console.log(`Checkout URL: ${iframe.src}`);
 
         referenceId++; // Increment reference ID
@@ -66,7 +66,7 @@ document.getElementById('top-up-button').addEventListener('click', async functio
 
                     while (orderStatus !== 'successful') {
                         const statusResponse = await axios.get(
-                            `https://prodp-api.xion.app/api/v2/order/status/${orderCode}`,
+                            `https://prodp-api.xionpay.app/api/v2/order/status/${orderCode}`,
                             {
                                 headers: {
                                     Authorization:
