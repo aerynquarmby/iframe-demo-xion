@@ -1,6 +1,6 @@
 const popup = document.getElementById('popup');
 const iframe = document.getElementById('checkout-iframe');
-let referenceId = 1; // Starting reference ID
+let referenceId = 1500; // Starting reference ID
 
 document.getElementById('top-up-button').addEventListener('click', async function() {
     const zarAmount = parseFloat(document.getElementById('amount-input').value);
@@ -24,7 +24,7 @@ document.getElementById('top-up-button').addEventListener('click', async functio
         console.log(`Top up amount in USD: ${usdAmount}`);
 
         const response = await axios.post(
-            'https://prodp-api.xion.app/api/v2/iframe/create-product',
+            'https://devp-api.xion.app/api/v2/iframe/create-product',
             [
                 {
                     reference_id: referenceId.toString(),
@@ -37,7 +37,7 @@ document.getElementById('top-up-button').addEventListener('click', async functio
                     'Accept': 'application/json',
                     'Content-Type': 'application/json',
                     Authorization:
-                        'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiMHhlQWQzZjNhNzJFMTdiZTEwODQzMzBEOWI3ODBjRTNCZDE1MjhkQUVmIiwiY2xpZW50X2lkIjoiNjhjNm0wanQ3NjI5OGluZGM1YWt1djFxYm4iLCJjbGllbnRfc2VjcmV0IjoicmUydmRwcXQ1OHNocjVqcmRiajFrMXY4ajIxcW4xcDdwYW45cTF0amZta245MW9zYTBwIiwiZXhwIjoxNjkxNjgxMjc0LCJpYXQiOjE2ODkwODkyNzQsImlzcyI6Ilhpb24gR2xvYmFsIFNlcnZpY2UgQVBJIn0.S9rf4LeoV48SHHM_TRJwSH2bZtfDPzeb9OPz5RhXvgM',
+                        'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiMHhlQWQzZjNhNzJFMTdiZTEwODQzMzBEOWI3ODBjRTNCZDE1MjhkQUVmIiwiY2xpZW50X2lkIjoiMm9hN2JrbWplMmxlaHNlYzRzYnMxbWZrcTAiLCJjbGllbnRfc2VjcmV0IjoiMWxncG9wYWRkM2J0aGt1NHMwdXJxY2pjcWR1Yjd1Yjk4MW5iYWNtdTh2MG5tMHNpaWwwOCIsImV4cCI6MTY5NTc1ODQ2MywiaWF0IjoxNjkzMTY2NDYzLCJpc3MiOiJYaW9uIEdsb2JhbCBTZXJ2aWNlIEFQSSJ9.cr0YlReYuug5r-_HLz10jCU7ry8okPeCSXSFHIk9xGo',
                 },
             }
         );
@@ -47,7 +47,7 @@ document.getElementById('top-up-button').addEventListener('click', async functio
 
         const productToken = data[0].product_code;
         console.log(`Product token: ${productToken}`);
-        iframe.src = `https://checkout.xionpay.app/?token=${productToken}`;
+        iframe.src = `https://devp-checkout.xion.app/?token=${productToken}`;
         console.log(`Checkout URL: ${iframe.src}`);
 
         referenceId++; // Increment reference ID
@@ -66,7 +66,7 @@ document.getElementById('top-up-button').addEventListener('click', async functio
 
                     while (orderStatus !== 'successful') {
                         const statusResponse = await axios.get(
-                            `https://prodp-api.xion.app/api/v2/order/status/${orderCode}`,
+                            `https://devp-api.xion.app/api/v2/order/status/${orderCode}`,
                             {
                                 headers: {
                                     Authorization:
